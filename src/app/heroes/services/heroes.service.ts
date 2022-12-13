@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Heroe } from '../pages/heroe/interfaces/heroes.interface';
 import { environment } from '../../../environments/environment.prod';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +22,7 @@ export class HeroesService {
     return this.http.get <Heroe>( `${this.baseUrl}/heroes/${id}`)
   }
   
+  getSugerencias(termino: string):Observable<Heroe[]>{
+    return this.http.get <Heroe[]>(`${this.baseUrl}/heroes?q=${termino}&_limit=6`)
+  }
 }

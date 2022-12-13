@@ -8,7 +8,7 @@
         <h3>Buscador</h3>
         <form class="example-form">
             <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Number</mat-label>
+              <mat-label>Hero</mat-label>
               <input type="text"
                      placeholder="Pick one"
                      aria-label="Number"
@@ -17,7 +17,10 @@
                      [(ngModel)]="termino"
                      [matAutocomplete]="auto"
                      (input)="buscando()">
-              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                     
+              <mat-autocomplete autoActiveFirstOption 
+                                #auto="matAutocomplete"
+                                (optionSelected)="opcionSeleccionada( $event )">
                 <mat-option *ngFor="let heroe of heroes " [value]="heroe.id">
                   {{heroe.superhero}}
                 </mat-option>
@@ -25,6 +28,11 @@
             </mat-form-field>
           </form>
 
+    </div>
+    <div>
+      <pre>
+        {{heroeSeleccionado |json}}
+      </pre>
     </div>
 
 </div>
