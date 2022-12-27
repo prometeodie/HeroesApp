@@ -22,18 +22,20 @@ export class BuscarComponent implements OnInit {
 
   buscando(){
     this.heroesService.getSugerencias(this.termino)
-    .subscribe(heroes =>this.heroes = heroes);
+    .subscribe(heroes =>{
+      this.heroes = heroes
+      if(this.heroes.length === 0){
+        this.termino = `no se encontro un heroe con el termino ${this.termino}` 
+      }
+    })
   }
 
   opcionSeleccionada(event: MatAutocompleteSelectedEvent){
-
+    const hero: Heroe = event.option.value
+    this.termino = hero.superhero     
     
-    const hero: string = event.option.value
-
-    this.heroesService.getHeroesByID(hero)
-    .subscribe(heroe => {this.heroeSeleccionado = heroe;
-                        this.termino = heroe.superhero      
-    })
+    this.heroesService.getHeroesByID(hero.id!)
+    .subscribe(heroe => this.heroeSeleccionado = heroe)
   }
 
 }
