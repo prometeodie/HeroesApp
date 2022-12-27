@@ -13,7 +13,7 @@ export class BuscarComponent implements OnInit {
   termino: string = '';
   heroes: Heroe[] = [];
 
-  heroeSeleccionado!: Heroe;
+  heroeSeleccionado!: Heroe | undefined;
 
   constructor(private heroesService: HeroesService) { }
 
@@ -21,21 +21,22 @@ export class BuscarComponent implements OnInit {
   }
 
   buscando(){
-    this.heroesService.getSugerencias(this.termino)
+    this.heroesService.getSugerencias(this.termino.trim())
     .subscribe(heroes =>{
-      this.heroes = heroes
-      if(this.heroes.length === 0){
-        this.termino = `no se encontro un heroe con el termino ${this.termino}` 
-      }
+      this.heroes = heroes;
     })
   }
 
   opcionSeleccionada(event: MatAutocompleteSelectedEvent){
-    const hero: Heroe = event.option.value
-    this.termino = hero.superhero     
-    
-    this.heroesService.getHeroesByID(hero.id!)
-    .subscribe(heroe => this.heroeSeleccionado = heroe)
+
+    if(event.option.value !== ''){
+      const hero: Heroe = event.option.value
+      this.termino = hero.superhero     
+      this.heroesService.getHeroesByID(hero.id!)
+      .subscribe(heroe => this.heroeSeleccionado = heroe)  
+    }else{
+      this.heroeSeleccionado = undefined
+    }
   }
 
 }
