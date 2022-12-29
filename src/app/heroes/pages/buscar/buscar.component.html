@@ -33,10 +33,7 @@
           </form>
 
     </div>
-    <div>
-      <pre>
-        {{heroeSeleccionado |json}}
-      </pre>
+    <div *ngIf="heroeSeleccionado">
+      <app-heroe-tarjeta  [heroe]="heroeSeleccionado"></app-heroe-tarjeta>
     </div>
-
 </div>
