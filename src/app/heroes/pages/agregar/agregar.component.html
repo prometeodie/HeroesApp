@@ -1,4 +1,5 @@
-<h1> Nuevo Heroe <small>asd</small></h1>
+<h1> {{(heroe.id)? 'Editar' : 'Crear'}} Heroe 
+<small>{{heroe.superhero}}</small></h1>
 
 <div fxLayout="row" fxLayoutGap="40px"
                     fxLayout.xs="column"> 
@@ -14,14 +15,22 @@
                 required>
             </mat-form-field>
 
-            <mat-form-field fxFlex="100">
-                <mat-label>Primera Aparicion</mat-label>     
+            <mat-form-field >
+                <mat-label>Alter Ego</mat-label>     
                 <input matInput
                 type="text"
-                [(ngModel)]="heroe.first_appearance"
+                [(ngModel)]="heroe.alter_ego"
                 required>
             </mat-form-field>
         </div>
+        <mat-form-field>
+            <mat-label>Primera Aparicion</mat-label>     
+            <input matInput
+            type="text"
+            [(ngModel)]="heroe.first_appearance"
+            required>
+        </mat-form-field>
+
         <mat-form-field>
             <mat-label>Personajes</mat-label>     
             <input matInput
@@ -50,11 +59,20 @@
         </mat-form-field>
 
         <br>
-    
-        <button mat-raised-button color="primary" (click)="SaveNewHero()">
-            <mat-icon>edit</mat-icon>
-            Guardar
-        </button>
+        
+        <div fxLayout>
+            <button mat-raised-button color="primary" (click)="SaveNewHero()">
+                <mat-icon>edit</mat-icon>
+                {{(heroe.id)? 'actualizar' : 'Crear'}}
+            </button>
+
+            <span class="spacer"></span>
+
+            <button mat-raised-button *ngIf="heroe.id"
+                    (click)="borrarHero()"
+                    color="warn">remove<mat-icon></mat-icon>
+                </button>
+        </div>
     </div>
     
 

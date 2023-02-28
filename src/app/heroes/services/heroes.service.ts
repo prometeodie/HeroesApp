@@ -29,4 +29,14 @@ export class HeroesService {
   setNewHero(hero: Heroe):Observable <Heroe>{
     return this.http.post<Heroe>(`${this.baseUrl}/heroes`, hero)
   }
+  
+  updateHero(hero: Heroe):Observable <Heroe>{
+    return this.http.put<Heroe>(`${this.baseUrl}/heroes/${hero.id}`, hero)
+  }
+  
+  deleteHero(hero: Heroe):Observable <any>{
+    return this.http.delete<any>(`${this.baseUrl}/heroes/${hero.id}`)
+  }
+
+
 }
