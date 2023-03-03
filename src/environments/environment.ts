@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://reloco.com'
+  baseUrl: 'http://localhost:3000'
 };
 
 /*
