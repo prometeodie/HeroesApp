@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { authUser } from '../interfaces/auth.interfaces';
-import { map, Observable, of, tap } from 'rxjs';
-import { TestBed } from '@angular/core/testing';
+import { AuthUser } from '../interfaces/auth.interfaces';
+import { BehaviorSubject, map, Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +9,25 @@ import { TestBed } from '@angular/core/testing';
 export class AuthService {
 
 private baseUrl: string = environment.baseUrl;
-private _auth: authUser | undefined;
+private _auth: AuthUser | undefined;
+private _user$ = new BehaviorSubject<AuthUser>( {
+  "id": '1',
+  "usuario": "John Doe",
+  "email": "john.due@gmail.com"
+})
 
-get auth():authUser{
+private get user$(){
+  return this._user$;
+}
+
+getUser(){
+  return this.user$;
+}
+
+get auth():AuthUser{
   return {...this._auth!};
 }
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
 
   verificationStatus(): Observable<boolean>{
@@ -24,8 +35,8 @@ get auth():authUser{
         return of(false);
       }
 
-      return this.http.get<authUser>(`${this.baseUrl}/usuarios/1`)
-      .pipe( 
+      return this.getUser()
+      .pipe(
         map( auth => {
           this._auth = auth;
           if(auth.id == '1'){
@@ -34,11 +45,11 @@ get auth():authUser{
           return false;
         })
       );
-  
+
     }
 
   login(){
-    return this.http.get<authUser>(`${this.baseUrl}/usuarios/1`)
+    return this.getUser()
     .pipe(
       tap(auth => this._auth = auth),
       tap(auth => localStorage.setItem('token',auth.id))

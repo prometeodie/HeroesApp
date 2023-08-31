@@ -1,7 +1,7 @@
 export interface Heroe {
     id?:              string;
     superhero:        string;
-    publisher:        Publisher;
+    publisher:       string | Publisher;
     alter_ego:        string;
     first_appearance: string;
     characters:       string;

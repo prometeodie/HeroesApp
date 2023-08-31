@@ -23,7 +23,13 @@ export class BuscarComponent implements OnInit {
   buscando(){
     this.heroesService.getSugerencias(this.termino.trim())
     .subscribe(heroes =>{
-      this.heroes = heroes;
+      const amount: number = 5;
+      if(heroes.length < amount){
+        this.heroes = heroes;
+      }else{
+        this.heroes = heroes.slice(0,amount);
+        console.log(this.heroes)
+      }
     })
   }
 
@@ -31,9 +37,9 @@ export class BuscarComponent implements OnInit {
 
     if(event.option.value !== ''){
       const hero: Heroe = event.option.value
-      this.termino = hero.superhero     
+      this.termino = hero.superhero
       this.heroesService.getHeroesByID(hero.id!)
-      .subscribe(heroe => this.heroeSeleccionado = heroe)  
+      .subscribe(heroe => this.heroeSeleccionado = heroe)
     }else{
       this.heroeSeleccionado = undefined
     }

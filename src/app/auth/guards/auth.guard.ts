@@ -14,10 +14,10 @@ export class AuthGuard implements CanLoad, CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      
-      
+
+
       return this.authService.verificationStatus()
-      .pipe( 
+      .pipe(
           tap(isAuthenticated => {
             if(!isAuthenticated){
               this.router.navigate(['./auth/login']);
@@ -38,16 +38,16 @@ export class AuthGuard implements CanLoad, CanActivate {
     segments: UrlSegment[]): Observable<boolean>| boolean | UrlTree {
 
     return this.authService.verificationStatus()
-    .pipe( 
+    .pipe(
         tap(isAuthenticated => {
           if(!isAuthenticated){
             this.router.navigate(['./auth/login']);
           }
         })
      )
-    
-    
-      // if(this.authService.auth.id){
+
+
+    //   if(this.authService.auth.id){
     //   return true;
     // }
     // console.log('canLoad activated');

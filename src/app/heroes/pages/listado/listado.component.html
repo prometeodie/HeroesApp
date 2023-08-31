@@ -1,15 +1,8 @@
 
 <mat-divider></mat-divider>
 <br>
-<div 
-     fxLayout="row wrap"
-     fxLayout.xs="colum"
-     fxLayoutAlign="center"
-     fxLayoutGap="20px"
-      >
-    <div fxFlex="20"
-         fxFlex.lg="15"
-         fxFlex.sm="30"
+<div class="grid flex justify-content-center">
+    <div class="m-2 col-12 md:col-4 lg:col-3 "
     *ngFor="let heroe of heroes">
     <app-heroe-tarjeta [heroe]="heroe"></app-heroe-tarjeta>
     </div>

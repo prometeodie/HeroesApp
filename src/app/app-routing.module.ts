@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path:'**',
     //component: ErrorPageComponent
-    redirectTo:'404'
+    redirectTo:'auth'
   }
 ];
 
@@ -32,7 +32,7 @@ const routes: Routes = [
     RouterModule.forRoot( routes )
   ],
   exports: [
-    RouterModule 
+    RouterModule
   ]
 })
 export class AppRoutingModule { }

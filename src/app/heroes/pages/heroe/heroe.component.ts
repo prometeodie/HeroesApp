@@ -11,8 +11,8 @@ import { switchMap } from 'rxjs/operators';
 })
 export class HeroeComponent implements OnInit {
   heroe!: Heroe;
-  
-  constructor(private activatedRoute: ActivatedRoute, 
+
+  constructor(private activatedRoute: ActivatedRoute,
               private heroesServices: HeroesService,
               private router: Router) { }
 

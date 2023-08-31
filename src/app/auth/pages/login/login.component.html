@@ -1,11 +1,10 @@
-
-    <mat-grid-list cols="1">
-        <mat-grid-tile>
-            <button (click)="login()" mat-raised-button color="primary">
-                ingresar
-            </button>
-            <button (click)="ingresarsinlogin()" mat-raised-button color="warn">
-                ingresar sin login
-            </button>
-        </mat-grid-tile>
-    </mat-grid-list>
+<section class="login">
+  <header class="login__header"><h1 class="login__header__title">Heroes App</h1></header>
+  <button class="login__btn" (click)="login()" mat-raised-button color="primary">
+    Login
+  </button>
+  <div class="login__bg"></div>
+  <!-- <button class="login__btn" (click)="ingresarsinlogin()" mat-raised-button color="warn">
+      ingresar sin login
+  </button> -->
+</section>

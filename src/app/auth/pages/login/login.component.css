@@ -1,0 +1,44 @@
+.login,
+.login__header{
+  display: flex;
+  align-items: center;
+}
+
+.login{
+  width: 100%;
+  justify-content: center;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://mcdn.wallpapersafari.com/medium/38/17/sjlCzg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login__header{
+position: absolute;
+top: 0;
+height: 4rem;
+width: 100%;
+background-color: rgba(0, 0, 0, 0.356);
+color: #fff;
+z-index: 2;
+}
+.login__header__title{
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.login__btn{
+  z-index: 1;
+  padding: 1rem 2rem;
+}
+.login__bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(2.5px);
+}
