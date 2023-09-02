@@ -24,6 +24,7 @@ export class AgregarComponent implements OnInit {
     first_appearance:['',[Validators.required]],
     publisher: ['',[Validators.required]],
     alt_img:['',[]],
+    heroe_desc:['',[Validators.required]]
   })
   publishers = [
     {
@@ -43,6 +44,7 @@ export class AgregarComponent implements OnInit {
     first_appearance:'',
     publisher: Publisher.DCComics,
     alt_img:'',
+    heroe_desc:''
   }
 
 
@@ -111,5 +113,6 @@ export class AgregarComponent implements OnInit {
     this.myForm.get('first_appearance')?.setValue(hero.first_appearance);
     this.myForm.get('alt_img')?.setValue(hero.alt_img!);
     this.myForm.get('publisher')?.setValue(hero.publisher);
+    this.myForm.get('heroe_desc')?.setValue(hero.heroe_desc!);
   }
 }

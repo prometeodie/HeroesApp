@@ -1,0 +1,9 @@
+@media (min-width:320px) {
+  .form__img{
+    max-width: 300px;
+  }
+}
+
+.add-edit-img{
+  object-fit: cover;
+}

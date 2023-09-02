@@ -1,13 +1,11 @@
 <h1> {{(heroe.id)? 'Editar' : 'Crear'}} Heroe
 <small>{{heroe.superhero}}</small></h1>
 
-<div fxLayout="row" fxLayoutGap="40px"
-                    fxLayout.xs="column">
-    <form action="" [formGroup]="myForm">
-    <div fxFlex="50" fxLayout="column">
-        <div fxLayout="row"  fxLayoutGap="20"
-                             fxLayout.xs="column">
-                <mat-form-field fxFlex="100">
+<div>
+    <form action="" [formGroup]="myForm" class="flex flex-column w-full md:flex-row md:justify-content-center">
+    <div class="flex flex-column md:w-6 " >
+        <div class="flex">
+                <mat-form-field  class="mr-2 w-6">
                 <mat-label>Super Heroe</mat-label>
                 <input matInput
                 type="text"
@@ -16,7 +14,7 @@
                 required>
             </mat-form-field>
 
-            <mat-form-field >
+            <mat-form-field class="w-6">
                 <mat-label>Alter Ego</mat-label>
                 <input matInput
                 type="text"
@@ -63,6 +61,13 @@
             [value]="heroe.alt_img"
             >
         </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Descripción del heroe</mat-label>
+            <textarea matInput formControlName="heroe_desc"
+                                placeholder="Descripción del heroe...">
+            </textarea>
+        </mat-form-field>
         <br>
 
         <div fxLayout>
@@ -81,8 +86,8 @@
       </div>
 
 
-      <div fxFlex="50">
-        <img [src]="heroe | image" alt="hero">
+      <div class="flex justify-content-center md:w-6">
+        <img class="form__img mt-4 md:max-w-22rem md:ml-4 lg:max-w-26rem add-edit-img" [src]="heroe | image" alt="hero">
       </div>
     </form>
 

@@ -5,24 +5,22 @@
 </mat-grid-list>
 
 <ng-template #divHeroe>
-    <div fxLayout="row"
-         fxLayout.gt-sm="colum"
-         fxLayoutGap="30px">
-
-         <div fxFlex="50">
-            <h1>{{heroe.superhero}}  <small> {{heroe.alter_ego}} </small> </h1>
-            <mat-divider></mat-divider>
-            <br>
+  <h1>{{heroe.superhero}}  <small> {{heroe.alter_ego}} </small> </h1>
+  <mat-divider></mat-divider>
+  <br>
+    <div class="flex flex-column  md:flex-row img-text-section">
+         <div class="flex justify-content-center">
             <img class="imgResponsive" [src]="heroe| image" alt="{{heroe.superhero}}">
         </div>
-         <div fxFlex="50">
-            <h1> {{heroe.publisher}} </h1>
+         <div class="mt-3">
+            <h2> {{heroe.publisher}} </h2>
             <mat-divider></mat-divider>
             <mat-list>
-                <h1> <strong> Primera Aparición:</strong>  {{heroe.first_appearance}} </h1>
-                <h1> <strong> Personaje:</strong>  {{heroe.characters}} </h1>
-                <h1> <strong> Creador:</strong>  {{heroe.publisher}} </h1>
-                <h1> <strong>  Alter Ego:</strong> {{heroe.alter_ego}} </h1>
+                <h2> <strong> Primera Aparición:</strong>  {{heroe.first_appearance}} </h2>
+                <h2> <strong> Personaje:</strong>  {{heroe.characters}} </h2>
+                <h2> <strong> Creador:</strong>  {{heroe.publisher}} </h2>
+                <h2> <strong> Alter Ego:</strong> {{heroe.alter_ego}} </h2>
+                <p> {{heroe.heroe_desc}} </p>
             </mat-list>
             <br>
             <button mat-button color="warn" (click)="getBack()"><strong>Regresar</strong></button>

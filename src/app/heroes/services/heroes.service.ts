@@ -168,7 +168,8 @@ export class HeroesService {
       "publisher": "Marvel Comics",
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
-      "characters": "Norrin Radd"
+      "characters": "Norrin Radd",
+      "heroe_desc":"Lorem ipsum dolor sit amet consectetur adipisicing . Placeat, consequuntur? Rem officia blanditiis quos, sunt totam maxime, deleniti commodi deserunt nihil tenetur mollitia, consectetur quidem illum quaerat distinctio facilis."
     }
   ]
   // private baseUrl : string = environment.baseUrl;

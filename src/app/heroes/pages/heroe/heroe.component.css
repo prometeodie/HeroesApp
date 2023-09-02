@@ -1,6 +1,14 @@
 .imgResponsive{
-    width: 70%;
-    margin-left: 15%;
+    width: 90%;
     border-radius: 5px;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.544);
+}
+
+@media (min-width:320px) {
+
+  .img-text-section{
+    display: flex;
+    flex-direction: column;
+
+  }
 }

@@ -10,3 +10,28 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .division{
     margin-top: 20px; ;
 }
+
+html::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+html::-webkit-scrollbar:vertical {
+  width:3px;
+}
+
+html::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+  display: none;
+}
+
+html::-webkit-scrollbar:horizontal {
+  height: 5px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+}
+
+html::-webkit-scrollbar-track {
+  border-radius: 10px;
+}

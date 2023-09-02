@@ -1,4 +1,12 @@
 
+  .img-container__img{
+    /* object-fit: cover; */
+    /* min-height: 30rem; */
+  }
+
+
+
+
   .mat-card__text::-webkit-scrollbar {
     -webkit-appearance: none;
   }
