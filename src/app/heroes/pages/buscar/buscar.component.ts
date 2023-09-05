@@ -21,14 +21,13 @@ export class BuscarComponent implements OnInit {
   }
 
   buscando(){
-    this.heroesService.getSugerencias(this.termino.trim())
+    this.heroesService.getSugerencias(this.termino.trim().toLocaleLowerCase())
     .subscribe(heroes =>{
       const amount: number = 5;
       if(heroes.length < amount){
         this.heroes = heroes;
       }else{
         this.heroes = heroes.slice(0,amount);
-        console.log(this.heroes)
       }
     })
   }
